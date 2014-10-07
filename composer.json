@@ -1,0 +1,20 @@
+{
+    "name": "alfa30/ajenjo-laravel",
+    "version": "0.5.0",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jonathan Delgado Zamorano",
+            "email": "jonad.correo@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "laravel/laravel": "~4.2"
+    },
+    "autoload": {
+        "classmap": [
+            "src\\"
+        ]
+    }
+}
