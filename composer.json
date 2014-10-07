@@ -1,6 +1,6 @@
 {
     "name": "alfa30/ajenjo-laravel",
-    "version": "0.5.1",
+    "version": "0.5.2",
     "license": "MIT",
     "authors": [
         {
@@ -10,7 +10,8 @@
     ],
     "minimum-stability": "stable",
     "require": {
-        "laravel/framework": "4.2.*"
+        "laravel/framework": "4.2.*",
+        "alfa30/component-ajenjo-composer": "~0.1"
     },
     "autoload": {
         "classmap": [
