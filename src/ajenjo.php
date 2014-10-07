@@ -67,6 +67,7 @@ class ajenjo {
 		self::$user = self::$d->user;
 		self::$auth = self::$d->auth;
 		Session::put('ajenjo_sesion$d',self::$d);// carga la memoria $d a la memoria de sesion
+		self::destroy();
 		return $return;
 	}
 
