@@ -1,6 +1,6 @@
 {
     "name": "alfa30/ajenjo-laravel",
-    "version": "0.5.3",
+    "version": "0.5.4",
     "license": "MIT",
     "authors": [
         {
@@ -14,8 +14,8 @@
         "alfa30/component-ajenjo-composer": "~0.1"
     },
     "autoload": {
-        "classmap": [
-            "src\\"
-        ]
+        "psr-0": {
+            "ajenjo\\laravel\\": "src/"
+        }
     }
 }
