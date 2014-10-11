@@ -41,8 +41,16 @@ class ajenjo {
 	 */
 	static function check() {
 		self::__load();// carga a __load
+		// identifica si se ha generado un nuevo token artificialmente
+		if (true
+			&& Input::has('session_lock')
+			&& Input::has('token')
+			) {
+			self::$d->token = Input::get('token');
+		}
 		$return = self::$d->check();// Captura check original
 		Session::put('ajenjo_sesion$d',self::$d);// carga la memoria $d a la memoria de sesion
+
 		return $return;
 	}
 
@@ -77,16 +85,37 @@ class ajenjo {
 	static function destroy() {
 		// self::__load();
 		// Vasia las variables locales
-		$d = null;
-		$token = null;
-		$user = null;
-		$auth = null;
-		$updated_at = null;
-		$created_at = null;
+		self::$d = null;
+		self::$token = null;
+		self::$user = null;
+		self::$auth = null;
+		self::$updated_at = null;
+		self::$created_at = null;
 		// Elimina las variables de sesion actual
 		Session::forget('ajenjo_sesion$d');
 		Session::forget(Config::get('ajenjo.cookie', 'ajenjo_sesion'));
 		return true;
 	}
 
+	static function openLogin() {
+		self::__load();
+		$rurl = self::$d->urls->login
+		 . '?token='
+		 . self::$d->token
+		 . '&p='
+		 . URL::full()
+		 ;
+		return $rurl;
+	}
+
+	static function checkLogin() {
+		return (true
+			&& Input::has('session_lock')
+			&& Input::has('token')
+		);
+	}
+
+	static function clearURL() {
+		return Redirect::to(Request::url());
+	}
 }
