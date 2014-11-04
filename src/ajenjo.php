@@ -13,7 +13,7 @@ class ajenjo {
 
 	static function __load() {
 		$aje = new ajenjo\connect(
-			Config::get('ajenjo.base_uri', 'http://ajenjo.localhost/'),
+			Config::get('ajenjo.base_uri', 'http://ajenjo.cottolengo.cl/'),
 			Config::get('ajenjo.path_url', '/api/json')
 		);// Carga el objeto ajenjo conect
 		if (Session::has(Config::get('ajenjo.cookie', 'ajenjo_sesion'))) {// Verifica si existe un token en la sesion actual
